@@ -1,4 +1,4 @@
-The file includes a python notebook file which has mnodelled the Finnish Parliamentary elections as a Predator Prey Model. 
+The file includes a python notebook file which has modelled the Finnish Parliamentary elections as a Predator Prey Model. 
 
 This predator prey model follows the Lotka Volterrra Differential Equations framework and aims to understand the the interaction between the votes accumulated by the SDKL party and all other parties of Finland combined. 
 
