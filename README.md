@@ -1,38 +1,34 @@
-The file includes a python notebook file which has modelled the Finnish Parliamentary elections as a Predator Prey Model. 
+# Finnish elections as a predator-prey system
 
-This predator prey model follows the Lotka Volterrra Differential Equations framework and aims to understand the the interaction between the votes accumulated by the SDKL party and all other parties of Finland combined. 
+Can a model built for foxes and rabbits describe voters? This project treats
+Finnish parliamentary elections from 1954 to 1983 as a **Lotka-Volterra
+predator-prey system**: the communist-led SKDL alliance as the "predator" and
+all other parties combined as the "prey", following Durand and Durand (1992).
 
-The data and other details for this project has been taken from Durand's work : Fitting and testing a ‘predator-prey model’. 
+## The model
 
-Election year	  SKDL Vote (in thousands)	Vote for All Other (in thousands)
-1954	                433	                            1575
-1958	                450	                            1494
-1962	                507	                            1795
-1966	                502	                            1868
-1970	                421	                            2115
-1972	                439	                            2139
-1975	                519	                            2231
-1979	                518	                            2376
-1983	                401	                            2579
+$$\frac{dP}{dt} = 0.6\,P - 0.0013\,PS \qquad \frac{dS}{dt} = -0.39\,S + 0.00022\,SP$$
 
+*P* = votes for all other parties, *S* = votes for SKDL (thousands), starting
+from the 1954 result (*P* = 1,575, *S* = 433). The system is solved
+numerically with an explicit Euler scheme over 10,000 time steps.
 
+## What it shows
 
-The report includes the following:
+- **Both vote series cycle**, as predator-prey theory predicts. SKDL's cycle is
+  roughly 12.5 years with an amplitude of about 55,000 votes; the other
+  parties' cycle is roughly 14 years with an amplitude of about 275,000.
+- The **phase-plane plot** shows trajectories orbiting the equilibrium point,
+  rather than settling on it.
+- A two-equation model captures the *shape* of the interaction; real
+  elections have many drivers it leaves out, so it is a lens, not a forecast.
 
-1) An introduction to the predator prey models.
+## Files
 
-2) A description of the Lokta-Volterra differential equations
+| File | Contents |
+|---|---|
+| `Finnish Parliamentary- Predator Prey.ipynb` | Model, numerical solution, component and phase-plane plots |
+| `Predator Prey Model Report.pdf` | Write-up: background, derivation, results and interpretation |
 
-3) How the model has been applied to different areas
-
-4) Defining the predator prey model:
-
-   i) Describing the general relationship
-
-   ii) Writing the general form of the differential equation 
-
-   iii) Using the python code to solve a specific form of the predator prey model
-
-   iv) Describing the output of the code
-
-
+Data: Durand, J. and Durand, R. (1992), *Fitting and testing a "predator-prey"
+model*. Built in Python with NumPy and Matplotlib (2020).
